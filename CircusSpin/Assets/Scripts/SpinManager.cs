@@ -40,6 +40,7 @@ public class SpinManager : MonoBehaviour
             {
                 spinTime += Time.deltaTime;
                 Debug.Log("getkey" + spinTime);
+                GetComponent<SpriteRenderer>().color = Color.yellow;
             }
 
             if (Input.GetKeyUp(KeyCode.E))
@@ -49,6 +50,7 @@ public class SpinManager : MonoBehaviour
 
                  //and once the key is released, the spinTime is reset to zero
                  spinTime = 0;
+                GetComponent<SpriteRenderer>().color = Color.white;
                  Debug.Log("keylifted");
                
             }
