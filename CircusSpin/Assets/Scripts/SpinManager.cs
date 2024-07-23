@@ -10,27 +10,41 @@ public class SpinManager : MonoBehaviour
     bool inDeathSpace;
     float spinTime;
 
+    //this is some set up variables for changing the force of the bounce.
+    //Time gained will find
+    float timeGained;
+
     // Start is called before the first frame update
     void Start()
     {
-        inAirSpace = false;
+        inAirSpace = true;
         inDeathSpace = false;
         spinTime = 0;
     }
 
     // Update is called once per frame
     void Update()
-    {
-        if (inDeathSpace && Input.GetKey(KeyCode.Space)) 
+    {      
+        if (inAirSpace && Input.GetKeyDown(KeyCode.E))
         {
-            Destroy(gameObject);
+            startCounting();
         }
-        while (inAirSpace && Input.GetKey(KeyCode.Space) && !inDeathSpace)
+    }
+
+    private void startCounting()
+    {
+        Debug.Log("counting");
+        while (Input.GetKey(KeyCode.E))
         {
             //spinTime is added to while the button is still pressed down
             spinTime += Time.deltaTime;
             Debug.Log(spinTime);
         }
+        /*else if (inDeathSpace)
+        {
+            Destroy(gameObject);
+        }
+        */
     }
 
     public void enterAirSpace() 
