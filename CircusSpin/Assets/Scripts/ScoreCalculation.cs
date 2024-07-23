@@ -38,7 +38,10 @@ public class ScoreCalculation : MonoBehaviour
         airTime += Time.deltaTime;
     }
 
-    private void StartTimer() { }
+    private void StartTimer() 
+    {
+
+    }
     private void EndTimer()
     {
         startTimer = false;
