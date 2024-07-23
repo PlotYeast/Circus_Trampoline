@@ -24,28 +24,37 @@ public class SpinManager : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {      
-        if (inAirSpace && Input.GetKeyDown(KeyCode.E))
+    {
+        if (inDeathSpace)
         {
-            startCounting();
+            //im thinking something around the lines of locking all player interaction
+            //and forcing a cutscene of the player going oof
+            //but it also can just cut to a screen of a dead af little guy as the "game over".
+            // it would be easier to code but more jarring 
+            
+        }
+        else
+        {
+            Debug.Log("counting");
+            if (Input.GetKey(KeyCode.E))
+            {
+                spinTime += Time.deltaTime;
+                Debug.Log("getkey" + spinTime);
+            }
+
+            if (Input.GetKeyUp(KeyCode.E))
+            {
+                 //the spinTime will be sent to another script thatll determine how much force to add/subtract to the ball when it bounces again
+                 //but the prototype wouldnt have this for now
+
+                 //and once the key is released, the spinTime is reset to zero
+                 spinTime = 0;
+                 Debug.Log("keylifted");
+               
+            }
         }
     }
 
-    private void startCounting()
-    {
-        Debug.Log("counting");
-        while (Input.GetKey(KeyCode.E))
-        {
-            //spinTime is added to while the button is still pressed down
-            spinTime += Time.deltaTime;
-            Debug.Log(spinTime);
-        }
-        /*else if (inDeathSpace)
-        {
-            Destroy(gameObject);
-        }
-        */
-    }
 
     public void enterAirSpace() 
     {
