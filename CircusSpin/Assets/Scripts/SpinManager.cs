@@ -9,10 +9,11 @@ public class SpinManager : MonoBehaviour
 
     bool inAirSpace;
     bool inDeathSpace;
-    float spinTime;
+    public float spinTime;
     [SerializeField] AudioSource whoosh;
     [SerializeField] Text scoreText;
     float totalScore = 0f;
+    [SerializeField] PlayerBounce playerBounce;
 
     //this is some set up variables for changing the force of the bounce.
     //Time gained will find
@@ -39,8 +40,6 @@ public class SpinManager : MonoBehaviour
         }
         else
         {
-            Debug.Log("counting");
-
             if (Input.GetKeyDown(KeyCode.E))
             {
                 whoosh.Play();
@@ -59,13 +58,12 @@ public class SpinManager : MonoBehaviour
             {
                 //the spinTime will be sent to another script thatll determine how much force to add/subtract to the ball when it bounces again
                 //but the prototype wouldnt have this for now
-                
-
-                 //and once the key is released, the spinTime is reset to zero
-                 spinTime = 0;
-                 GetComponent<SpriteRenderer>().color = Color.white;
-                 whoosh.Stop();
-                 Debug.Log("keylifted");
+                playerBounce.AddSpinTime(spinTime);
+                //and once the key is released, the spinTime is reset to zero
+                spinTime = 0;
+                GetComponent<SpriteRenderer>().color = Color.white;
+                whoosh.Stop();
+                Debug.Log("keylifted");
                
             }
         }
