@@ -29,6 +29,7 @@ public class SpinManager : MonoBehaviour
         playerBounce = GetComponent<PlayerBounce>();
         rB = GetComponent<Rigidbody2D>();
         rB.gravityScale = 0f;
+        
     }
 
     // Update is called once per frame
@@ -92,5 +93,11 @@ public class SpinManager : MonoBehaviour
     public void loseGame() 
     {
         SceneManager.LoadScene("EndScene");
+        PlayerPrefs.SetFloat("GameDistance", highestDistance);
+        if (highestDistance > PlayerPrefs.GetFloat("HighestDistance", 0.0f))
+        {
+            PlayerPrefs.SetFloat("HighestDistance", highestDistance);
+        }
+
     }
 }

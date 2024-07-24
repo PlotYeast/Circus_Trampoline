@@ -11,7 +11,7 @@ public class DisplayScore : MonoBehaviour
     void Start()
     {
         scoreText.text = "This round's highest jump: " + PlayerPrefs.GetFloat("GameDistance", 0f).ToString("0.#") + " meters!";
-        HighestDistance.text = "All-time highest jump: " + PlayerPrefs.GetFloat("HighestDistance", 100.1f).ToString("0.#") + " meters!";
+        HighestDistance.text = "All-time best jump: " + PlayerPrefs.GetFloat("HighestDistance", 100.1f).ToString("0.#") + " meters!";
     }
 
     // Update is called once per frame

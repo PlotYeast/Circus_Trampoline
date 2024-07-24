@@ -229,7 +229,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scoreText: {fileID: 1743068081}
-  HighestDistance: {fileID: 0}
+  HighestDistance: {fileID: 1799620523}
 --- !u!114 &23888003
 MonoBehaviour:
   m_ObjectHideFlags: 0
