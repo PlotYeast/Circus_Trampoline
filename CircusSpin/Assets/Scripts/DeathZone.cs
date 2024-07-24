@@ -29,10 +29,10 @@ public class DeathZone : MonoBehaviour
 
     public void PretendThisIstheend(float totalScore)
     {
-        PlayerPrefs.SetFloat("GameScore", totalScore);
-        if (totalScore > PlayerPrefs.GetFloat("Highscore", 0.0f))
+        PlayerPrefs.SetFloat("GameDistance", totalScore);
+        if (totalScore > PlayerPrefs.GetFloat("HighestDistance", 0.0f))
             {
-            PlayerPrefs.SetFloat("Highscore", totalScore);
+            PlayerPrefs.SetFloat("HighestDistance", totalScore);
             }
         
     }

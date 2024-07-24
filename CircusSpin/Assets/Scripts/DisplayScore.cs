@@ -6,12 +6,12 @@ using UnityEngine.UI;
 public class DisplayScore : MonoBehaviour
 {
     [SerializeField] Text scoreText;
-    [SerializeField] Text Highscore;
+    [SerializeField] Text HighestDistance;
     // Start is called before the first frame update
     void Start()
     {
-        scoreText.text = "Final Score: " + PlayerPrefs.GetFloat("GameScore", 0f).ToString("0.###");
-        Highscore.text = "Highscore: " + PlayerPrefs.GetFloat("Highscore", 100f).ToString("0.###");
+        scoreText.text = "This round's highest jump: " + PlayerPrefs.GetFloat("GameDistance", 0f).ToString("0.#") + " meters!";
+        HighestDistance.text = "All-time highest jump: " + PlayerPrefs.GetFloat("HighestDistance", 100.1f).ToString("0.#") + " meters!";
     }
 
     // Update is called once per frame
