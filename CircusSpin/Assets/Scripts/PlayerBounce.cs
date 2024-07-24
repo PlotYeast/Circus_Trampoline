@@ -8,10 +8,12 @@ public class PlayerBounce : MonoBehaviour
     float spinTime;
     [SerializeField] float jumpForce;
     [SerializeField] float timeMultiplier = 1.5f;
+    SpinManager spinner;
     Rigidbody2D rB;
     // Start is called before the first frame update
     void Start()
     {
+        spinner = GetComponent<SpinManager>();
         rB = GetComponent<Rigidbody2D>();
     }
 
@@ -26,7 +28,7 @@ public class PlayerBounce : MonoBehaviour
         rB.velocity = new Vector2(0, timeSpun*jumpForce);
         if (spinTime == 0) 
         {
-            //Loss Code
+            spinner.loseGame();
         }
         airTime = 0;
         spinTime = 0;
