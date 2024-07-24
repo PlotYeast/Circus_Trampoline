@@ -9,14 +9,14 @@ EditorBuildSettings:
     path: Assets/Scenes/DemonstrationLevel.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 1
+    path: Assets/Scenes/StartScene.unity
+    guid: 1bf243e23b92c4e4b9da1da04aea3ab5
+  - enabled: 1
     path: Assets/Scenes/BounceScene.unity
     guid: e85cbbd762b30f24f84b300518c3d48b
   - enabled: 1
     path: Assets/Scenes/LoseScreen.unity
     guid: c2771e6b23fcd2342b5cd03ba4a48bd7
-  - enabled: 1
-    path: Assets/Scenes/StartScene.unity
-    guid: 1bf243e23b92c4e4b9da1da04aea3ab5
   - enabled: 1
     path: Assets/Scenes/EndScene.unity
     guid: 5b5e59e800f423d449607e493cffc037
