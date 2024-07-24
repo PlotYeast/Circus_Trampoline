@@ -8,6 +8,9 @@ public class PlayerBounce : MonoBehaviour
     float spinTime;
     [SerializeField] float jumpForce;
     [SerializeField] float timeMultiplier = 1.5f;
+    [SerializeField] AudioSource Bounce1;
+    [SerializeField] AudioSource Bounce2;
+    [SerializeField] AudioSource Bounce3;
     SpinManager spinner;
     Rigidbody2D rB;
     // Start is called before the first frame update
@@ -24,6 +27,11 @@ public class PlayerBounce : MonoBehaviour
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        int bounceSound = Random.Range(1, 4);
+        Debug.LogWarning(bounceSound);
+        if (bounceSound == 1) Bounce1.Play();
+        else if (bounceSound == 2) Bounce2.Play();
+        else Bounce3.Play();
         float timeSpun = spinTime / airTime * timeMultiplier;
         rB.velocity = new Vector2(0, timeSpun*jumpForce);
         if (spinTime == 0) 

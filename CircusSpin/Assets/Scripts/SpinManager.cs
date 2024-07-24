@@ -14,7 +14,7 @@ public class SpinManager : MonoBehaviour
     [SerializeField] Text scoreText;
     float totalScore = 0f;
     PlayerBounce playerBounce;
-
+    Rigidbody2D rB;
     float highestDistance = 0f;
 
     //this is some set up variables for changing the force of the bounce.
@@ -27,6 +27,8 @@ public class SpinManager : MonoBehaviour
         inDeathSpace = false;
         spinTime = 0;
         playerBounce = GetComponent<PlayerBounce>();
+        rB = GetComponent<Rigidbody2D>();
+        rB.gravityScale = 0f;
     }
 
     // Update is called once per frame
@@ -37,7 +39,7 @@ public class SpinManager : MonoBehaviour
             highestDistance = transform.position.y;
         }
 
-        if (inDeathSpace && Input.GetKeyDown(KeyCode.E))
+        if (inDeathSpace && Input.GetKey(KeyCode.E))
         {
             //im thinking something around the lines of locking all player interaction
             //and forcing a cutscene of the player going oof
@@ -50,6 +52,7 @@ public class SpinManager : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.E))
             {
                 whoosh.Play();
+                rB.gravityScale = 1f;
             }
 
             if (Input.GetKey(KeyCode.E))
