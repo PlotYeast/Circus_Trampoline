@@ -88,6 +88,6 @@ public class SpinManager : MonoBehaviour
     }
     public void loseGame() 
     {
-        SceneManager.LoadScene("LoseScreen");
+        SceneManager.LoadScene("EndScene");
     }
 }
