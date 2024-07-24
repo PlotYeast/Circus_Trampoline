@@ -15,6 +15,8 @@ public class SpinManager : MonoBehaviour
     float totalScore = 0f;
     PlayerBounce playerBounce;
 
+    float highestDistance = 0f;
+
     //this is some set up variables for changing the force of the bounce.
     //Time gained will find
     float timeGained;
@@ -30,16 +32,18 @@ public class SpinManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (inDeathSpace)
+        if (transform.position.y > highestDistance)
+        {
+            highestDistance = transform.position.y;
+        }
+
+        if (inDeathSpace && Input.GetKeyDown(KeyCode.E))
         {
             //im thinking something around the lines of locking all player interaction
             //and forcing a cutscene of the player going oof
             //but it also can just cut to a screen of a dead af little guy as the "game over".
             // it would be easier to code but more jarring 
-            if (Input.GetKey(KeyCode.E)) 
-            {
                 loseGame();
-            }
         }
         else
         {
@@ -53,7 +57,6 @@ public class SpinManager : MonoBehaviour
                 spinTime += Time.deltaTime;
                 Debug.Log("getkey" + spinTime);
                 totalScore += spinTime;
-                scoreText.text = "Score: " + (totalScore).ToString("0");
                 GetComponent<SpriteRenderer>().color = Color.yellow;
             }
 
@@ -70,6 +73,8 @@ public class SpinManager : MonoBehaviour
                
             }
         }
+
+        scoreText.text = "Highest jump reached \r\n" + (highestDistance).ToString("0.#") + " meters.";
     }
     public void enterDeathSpace()
     {

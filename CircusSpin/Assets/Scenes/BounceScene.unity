@@ -481,8 +481,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -174, y: 159}
-  m_SizeDelta: {x: 429.26, y: 52.4}
+  m_AnchoredPosition: {x: -238.16, y: 136.57}
+  m_SizeDelta: {x: 300.93, y: 97.25}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &556166455
 MonoBehaviour:
@@ -511,13 +511,15 @@ MonoBehaviour:
     m_BestFit: 0
     m_MinSize: 0
     m_MaxSize: 300
-    m_Alignment: 0
+    m_Alignment: 1
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Score: 0000'
+  m_Text: 'Highest jump reached
+
+    0.0 meters!'
 --- !u!222 &556166456
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1043,7 +1045,6 @@ MonoBehaviour:
   spinTime: 0
   whoosh: {fileID: 799366314}
   scoreText: {fileID: 556166455}
-  playerBounce: {fileID: 988565870}
 --- !u!1 &1571082171
 GameObject:
   m_ObjectHideFlags: 0
