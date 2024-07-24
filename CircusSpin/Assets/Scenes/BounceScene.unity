@@ -899,6 +899,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   jumpForce: 10
+  timeMultiplier: 1.5
 --- !u!114 &988565871
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -911,8 +912,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 626ac2e90551e1a48b2c451a0bad82d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spinTime: 0
   whoosh: {fileID: 799366314}
   scoreText: {fileID: 556166455}
+  playerBounce: {fileID: 988565870}
 --- !u!1 &1571082171
 GameObject:
   m_ObjectHideFlags: 0
