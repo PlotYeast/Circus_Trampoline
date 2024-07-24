@@ -229,7 +229,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scoreText: {fileID: 1743068081}
-  Highscore: {fileID: 1799620523}
+  HighestDistance: {fileID: 0}
 --- !u!114 &23888003
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -279,7 +279,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -90}
+  m_AnchoredPosition: {x: 0, y: -77}
   m_SizeDelta: {x: 210.74, y: 83.44}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1043181566
@@ -593,8 +593,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -11, y: 40}
-  m_SizeDelta: {x: 490.83, y: 61.12}
+  m_AnchoredPosition: {x: 0, y: 40}
+  m_SizeDelta: {x: 843.49, y: 61.12}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1743068081
 MonoBehaviour:
@@ -629,7 +629,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Final Score: 0.000'
+  m_Text: This round's highest jump is 0.0 meters!
 --- !u!222 &1743068082
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -672,8 +672,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -11, y: 147}
-  m_SizeDelta: {x: 490.83, y: 61.12}
+  m_AnchoredPosition: {x: 0, y: 147}
+  m_SizeDelta: {x: 648.6, y: 61.12}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1799620523
 MonoBehaviour:
@@ -708,7 +708,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Highscore: 0.000'
+  m_Text: 'All-time best jump: 0.0 meters!'
 --- !u!222 &1799620524
 CanvasRenderer:
   m_ObjectHideFlags: 0
