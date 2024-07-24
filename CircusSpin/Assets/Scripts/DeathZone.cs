@@ -26,4 +26,14 @@ public class DeathZone : MonoBehaviour
     {
         BallSpinClass.exitDeathSpace();
     }
+
+    public void PretendThisIstheend(float totalScore)
+    {
+        PlayerPrefs.SetFloat("GameScore", totalScore);
+        if (totalScore > PlayerPrefs.GetFloat("Highscore", 0.0f))
+            {
+            PlayerPrefs.SetFloat("Highscore", totalScore);
+            }
+        
+    }
 }
