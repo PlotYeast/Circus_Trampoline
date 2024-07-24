@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class SpinManager : MonoBehaviour
 {
 
-    bool inAirSpace;
     bool inDeathSpace;
     public float spinTime;
     [SerializeField] AudioSource whoosh;
@@ -22,7 +22,6 @@ public class SpinManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        inAirSpace = true;
         inDeathSpace = false;
         spinTime = 0;
     }
@@ -36,6 +35,7 @@ public class SpinManager : MonoBehaviour
             //and forcing a cutscene of the player going oof
             //but it also can just cut to a screen of a dead af little guy as the "game over".
             // it would be easier to code but more jarring 
+            SceneManager.LoadScene("EndScene");
             
         }
         else
@@ -50,7 +50,7 @@ public class SpinManager : MonoBehaviour
                 spinTime += Time.deltaTime;
                 Debug.Log("getkey" + spinTime);
                 totalScore += spinTime;
-                scoreText.text = "Score: " + (totalScore).ToString("0");
+                scoreText.text = "Score: " + (totalScore/10).ToString("0");
                 GetComponent<SpriteRenderer>().color = Color.yellow;
             }
 
@@ -69,16 +69,6 @@ public class SpinManager : MonoBehaviour
         }
     }
 
-
-    public void enterAirSpace() 
-    {
-        inAirSpace = true; 
-    }
-
-    public void exitAirSpace()
-    {
-        inAirSpace = false;
-    }
 
     public void enterDeathSpace()
     {
