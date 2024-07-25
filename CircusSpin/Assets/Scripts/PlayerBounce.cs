@@ -44,7 +44,11 @@ public class PlayerBounce : MonoBehaviour
             default:
                 break;
         }
-
+        foreach (KeyCode input in spinner.GetPlayerInputs()) 
+        {
+            print(input.ToString());
+        }
+        spinner.ClearInputs();
         float timeSpun = spinTime / airTime * timeMultiplier;
         rB.velocity = new Vector2(0, timeSpun*jumpForce);
         if (spinTime == 0) 
