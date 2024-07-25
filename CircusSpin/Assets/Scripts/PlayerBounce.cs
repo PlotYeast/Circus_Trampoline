@@ -6,6 +6,7 @@ public class PlayerBounce : MonoBehaviour
 {
     float airTime = 0;
     float spinTime;
+    int score = 0;
     [SerializeField] float jumpForce;
     [SerializeField] float timeMultiplier = 1.5f;
     [SerializeField] AudioSource Bounce1;
@@ -61,5 +62,9 @@ public class PlayerBounce : MonoBehaviour
     public void AddSpinTime(float extraTime) 
     {
         spinTime += extraTime;
+    }
+    public void AddScore(int inputSequences) 
+    {
+        score += (inputSequences * (inputSequences + 1) * 50);
     }
 }
