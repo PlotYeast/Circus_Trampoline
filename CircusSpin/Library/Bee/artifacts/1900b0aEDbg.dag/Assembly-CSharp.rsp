@@ -378,6 +378,7 @@
 "Assets/Scripts/PlayerBounce.cs"
 "Assets/Scripts/ScoreCalculation.cs"
 "Assets/Scripts/SpinManager.cs"
+"Assets/Scripts/TrickPatternCreator.cs"
 -langversion:9.0
 /deterministic
 /optimize-
