@@ -29,9 +29,22 @@ public class PlayerBounce : MonoBehaviour
     {
         int bounceSound = Random.Range(1, 4);
         Debug.LogWarning(bounceSound);
-        if (bounceSound == 1) Bounce1.Play();
-        else if (bounceSound == 2) Bounce2.Play();
-        else Bounce3.Play();
+
+        switch (bounceSound) 
+        {
+            case 1:
+                Bounce1.Play();
+                break;
+            case 2:
+                Bounce2.Play();
+                break;
+            case 3:
+                Bounce3.Play();
+                break;
+            default:
+                break;
+        }
+
         float timeSpun = spinTime / airTime * timeMultiplier;
         rB.velocity = new Vector2(0, timeSpun*jumpForce);
         if (spinTime == 0) 
