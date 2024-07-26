@@ -42,10 +42,10 @@ public class SpinManager : MonoBehaviour
             highestDistance = transform.position.y;
         }
 
-        if (Input.GetKeyDown(KeyCode.UpArrow)) AddInput(KeyCode.UpArrow);
-        else if (Input.GetKeyDown(KeyCode.LeftArrow)) AddInput(KeyCode.LeftArrow);
-        else if(Input.GetKeyDown(KeyCode.DownArrow)) AddInput(KeyCode.DownArrow);
-        else if(Input.GetKeyDown(KeyCode.RightArrow)) AddInput(KeyCode.RightArrow);
+        if (Input.GetKeyDown(KeyCode.UpArrow)) AddInput("up");
+        else if (Input.GetKeyDown(KeyCode.LeftArrow)) AddInput("left");
+        else if(Input.GetKeyDown(KeyCode.DownArrow)) AddInput("down");
+        else if(Input.GetKeyDown(KeyCode.RightArrow)) AddInput("right");
 
         if (inDeathSpace && Input.GetKey(KeyCode.E))
         {
@@ -81,7 +81,7 @@ public class SpinManager : MonoBehaviour
             }
         }
     }
-    void AddInput(KeyCode input)
+    void AddInput(string input)
     {
         if (inDeathSpace)
         {
@@ -89,7 +89,7 @@ public class SpinManager : MonoBehaviour
         }
         else 
         {
-            playerInputs.Add(input.ToString());
+            playerInputs.Add(input);
             rB.gravityScale = 1f;
             //whoosh may have to be adjusted, but it's a temporary sound, so that was going to happen anyways
             whoosh.Play();
