@@ -8,7 +8,7 @@ public class TrickPatternCreator : MonoBehaviour
 {
     List<string> patterns = new List<string>();
 
-    int difficultyScale = 9;
+    int difficultyScale = 2;
     int numOfCorrectInputs = 0;
     
     string pattern = "";
