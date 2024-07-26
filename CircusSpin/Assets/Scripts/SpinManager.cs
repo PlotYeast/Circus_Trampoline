@@ -18,6 +18,7 @@ public class SpinManager : MonoBehaviour
     Rigidbody2D rB;
     float highestDistance = 0f;
     List<string> playerInputs;
+    public Animator anim;
 
     //this is some set up variables for changing the force of the bounce.
     //Time gained will find
@@ -42,10 +43,30 @@ public class SpinManager : MonoBehaviour
             highestDistance = transform.position.y;
         }
 
-        if (Input.GetKeyDown(KeyCode.UpArrow)) AddInput("up");
-        else if (Input.GetKeyDown(KeyCode.LeftArrow)) AddInput("left");
-        else if(Input.GetKeyDown(KeyCode.DownArrow)) AddInput("down");
-        else if(Input.GetKeyDown(KeyCode.RightArrow)) AddInput("right");
+        if (Input.GetKeyDown(KeyCode.UpArrow))
+        {
+            AddInput("up");
+            anim.SetFloat("TrickDirection", 1);
+            anim.SetTrigger("IsTricking");
+        }
+        else if (Input.GetKeyDown(KeyCode.LeftArrow))
+        {
+            AddInput("left");
+            anim.SetFloat("TrickDirection", 0);
+            anim.SetTrigger("IsTricking");
+        }
+        else if (Input.GetKeyDown(KeyCode.DownArrow))
+        {
+            AddInput("down");
+            anim.SetFloat("TrickDirection", 0.6666667f);
+            anim.SetTrigger("IsTricking");
+        }
+        else if (Input.GetKeyDown(KeyCode.RightArrow))
+        {
+            AddInput("right");
+            anim.SetFloat("TrickDirection", 0.33333333f);
+            anim.SetTrigger("IsTricking");
+        }
 
         if (inDeathSpace && Input.GetKey(KeyCode.E))
         {
