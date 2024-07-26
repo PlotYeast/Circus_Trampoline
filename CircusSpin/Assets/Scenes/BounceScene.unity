@@ -1264,10 +1264,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   jumpForce: 10
-  timeMultiplier: 1.5
+  jumpModifier: 0.5
+  jumpForceMax: 10
   Bounce1: {fileID: 1128197095}
   Bounce2: {fileID: 21773097}
   Bounce3: {fileID: 1066873842}
+  patternCreator: {fileID: 0}
 --- !u!114 &988565871
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1549,6 +1551,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1399237430}
   - component: {fileID: 1399237431}
+  - component: {fileID: 1399237432}
   m_Layer: 0
   m_Name: Player Sprite
   m_TagString: Untagged
@@ -1623,6 +1626,27 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &1399237432
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1399237429}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: f4438d2e39efe7f42b14e84c0291109e, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1571082171
 GameObject:
   m_ObjectHideFlags: 0
