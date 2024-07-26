@@ -13,6 +13,7 @@ public class PlayerBounce : MonoBehaviour
     [SerializeField] AudioSource Bounce2;
     [SerializeField] AudioSource Bounce3;
     SpinManager spinner;
+    TrickPatternCreator patternCreator;
     Rigidbody2D rB;
     // Start is called before the first frame update
     void Start()
@@ -29,8 +30,6 @@ public class PlayerBounce : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
         int bounceSound = Random.Range(1, 4);
-        Debug.LogWarning(bounceSound);
-
         switch (bounceSound) 
         {
             case 1:
@@ -45,7 +44,9 @@ public class PlayerBounce : MonoBehaviour
             default:
                 break;
         }
-        foreach (KeyCode input in spinner.GetPlayerInputs()) 
+        //int inputSequences = patternCreator.CompareInputs(spinner.GetPlayerInputs());
+        //spinner.AddScore(inputSequences);
+        foreach (string input in spinner.GetPlayerInputs()) 
         {
             print(input.ToString());
         }
@@ -62,9 +63,5 @@ public class PlayerBounce : MonoBehaviour
     public void AddSpinTime(float extraTime) 
     {
         spinTime += extraTime;
-    }
-    public void AddScore(int inputSequences) 
-    {
-        score += (inputSequences * (inputSequences + 1) * 50);
     }
 }
