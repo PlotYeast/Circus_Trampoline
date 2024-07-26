@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UIElements;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using UnityEngine.SocialPlatforms.Impl;
 
 
 public class SpinManager : MonoBehaviour
@@ -12,11 +13,11 @@ public class SpinManager : MonoBehaviour
     public float spinTime;
     [SerializeField] AudioSource whoosh;
     [SerializeField] Text scoreText;
-    float totalScore = 0f;
+    float score = 0f;
     PlayerBounce playerBounce;
     Rigidbody2D rB;
     float highestDistance = 0f;
-    List<KeyCode> playerInputs;
+    List<string> playerInputs;
 
     //this is some set up variables for changing the force of the bounce.
     //Time gained will find
@@ -30,7 +31,7 @@ public class SpinManager : MonoBehaviour
         playerBounce = GetComponent<PlayerBounce>();
         rB = GetComponent<Rigidbody2D>();
         rB.gravityScale = 0f;
-        playerInputs = new List<KeyCode>();
+        playerInputs = new List<string>();
     }
 
     // Update is called once per frame
@@ -46,43 +47,39 @@ public class SpinManager : MonoBehaviour
         else if(Input.GetKeyDown(KeyCode.DownArrow)) AddInput(KeyCode.DownArrow);
         else if(Input.GetKeyDown(KeyCode.RightArrow)) AddInput(KeyCode.RightArrow);
 
-            if (inDeathSpace && Input.GetKey(KeyCode.E))
+        if (inDeathSpace && Input.GetKey(KeyCode.E))
+        {
+            //im thinking something around the lines of locking all player interaction
+            //and forcing a cutscene of the player going oof
+            //but it also can just cut to a screen of a dead af little guy as the "game over".
+            // it would be easier to code but more jarring 
+            loseGame();
+        }
+        else
+        {
+            if (Input.GetKeyDown(KeyCode.E))
             {
-                //im thinking something around the lines of locking all player interaction
-                //and forcing a cutscene of the player going oof
-                //but it also can just cut to a screen of a dead af little guy as the "game over".
-                // it would be easier to code but more jarring 
-                loseGame();
-            }
-            else
-            {
-                if (Input.GetKeyDown(KeyCode.E))
-                {
-                    whoosh.Play();
-                    rB.gravityScale = 1f;
-                }
-
-                if (Input.GetKey(KeyCode.E))
-                {
-                    spinTime += Time.deltaTime;
-                    totalScore += spinTime;
-                    GetComponent<SpriteRenderer>().color = Color.yellow;
-                }
-
-                if (Input.GetKeyUp(KeyCode.E))
-                {
-                    //the spinTime will be sent to another script thatll determine how much force to add/subtract to the ball when it bounces again
-                    //but the prototype wouldnt have this for now
-                    playerBounce.AddSpinTime(spinTime);
-                    //and once the key is released, the spinTime is reset to zero
-                    spinTime = 0;
-                    GetComponent<SpriteRenderer>().color = Color.white;
-                    whoosh.Stop();
-
-                }
+                whoosh.Play();
+                rB.gravityScale = 1f;
             }
 
-        scoreText.text = "Highest jump reached \r\n" + (highestDistance).ToString("0.#") + " meters.";
+            if (Input.GetKey(KeyCode.E))
+            {
+                spinTime += Time.deltaTime;
+                GetComponent<SpriteRenderer>().color = Color.yellow;
+            }
+
+            if (Input.GetKeyUp(KeyCode.E))
+            {
+                //the spinTime will be sent to another script thatll determine how much force to add/subtract to the ball when it bounces again
+                //but the prototype wouldnt have this for now
+                playerBounce.AddSpinTime(spinTime);
+                //and once the key is released, the spinTime is reset to zero
+                spinTime = 0;
+                GetComponent<SpriteRenderer>().color = Color.white;
+                whoosh.Stop();
+            }
+        }
     }
     void AddInput(KeyCode input)
     {
@@ -92,13 +89,14 @@ public class SpinManager : MonoBehaviour
         }
         else 
         {
-            playerInputs.Add(input);
+            playerInputs.Add(input.ToString());
+            rB.gravityScale = 1f;
             //whoosh may have to be adjusted, but it's a temporary sound, so that was going to happen anyways
             whoosh.Play();
         }
 
     }
-    public List<KeyCode> GetPlayerInputs() 
+    public List<string> GetPlayerInputs() 
     {
         return playerInputs;
     }
@@ -124,5 +122,10 @@ public class SpinManager : MonoBehaviour
         {
             PlayerPrefs.SetFloat("HighestDistance", highestDistance);
         }
+    }
+    public void AddScore(int inputSequences)
+    {
+        score += (inputSequences * (inputSequences + 1) * 50);
+        scoreText.text = "Current Score: " + score;
     }
 }
