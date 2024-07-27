@@ -1285,6 +1285,7 @@ MonoBehaviour:
   spinTime: 0
   whoosh: {fileID: 799366314}
   scoreText: {fileID: 556166455}
+  anim: {fileID: 1399237432}
 --- !u!1 &1066873840
 GameObject:
   m_ObjectHideFlags: 0
