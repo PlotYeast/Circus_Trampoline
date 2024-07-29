@@ -28,13 +28,8 @@ public class TrickPatternCreator : MonoBehaviour
         DisplayInputs();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
     
-    private void CreateNewInputs()
+    public void CreateNewInputs()
     {
         for (int i = 0; i < difficultyScale; i++)
         {

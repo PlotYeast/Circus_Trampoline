@@ -43,7 +43,9 @@ public class PlayerBounce : MonoBehaviour
             default:
                 break;
         }
+        
         int inputSequences = patternCreator.CompareInputs(spinner.GetPlayerInputs());
+
         print(inputSequences);
         spinner.AddScore(inputSequences);
         if (inputSequences == 0) { jumpForce -= jumpModifier; }
@@ -56,8 +58,10 @@ public class PlayerBounce : MonoBehaviour
         {
             print(input.ToString());
         }
+
         spinner.ClearInputs();
-        
+        patternCreator.CreateNewInputs();
+
         rB.velocity = new Vector2(0, jumpForce);
         if (jumpForce <= 0) { spinner.loseGame();}
     }
