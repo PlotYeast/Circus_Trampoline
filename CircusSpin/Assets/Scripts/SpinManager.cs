@@ -67,40 +67,6 @@ public class SpinManager : MonoBehaviour
             anim.SetFloat("TrickDirection", 0.33333333f);
             anim.SetTrigger("IsTricking");
         }
-
-        if (inDeathSpace && Input.GetKey(KeyCode.E))
-        {
-            //im thinking something around the lines of locking all player interaction
-            //and forcing a cutscene of the player going oof
-            //but it also can just cut to a screen of a dead af little guy as the "game over".
-            // it would be easier to code but more jarring 
-            loseGame();
-        }
-        else
-        {
-            if (Input.GetKeyDown(KeyCode.E))
-            {
-                whoosh.Play();
-                rB.gravityScale = 1f;
-            }
-
-            if (Input.GetKey(KeyCode.E))
-            {
-                spinTime += Time.deltaTime;
-                GetComponent<SpriteRenderer>().color = Color.yellow;
-            }
-
-            if (Input.GetKeyUp(KeyCode.E))
-            {
-                //the spinTime will be sent to another script thatll determine how much force to add/subtract to the ball when it bounces again
-                //but the prototype wouldnt have this for now
-                playerBounce.AddSpinTime(spinTime);
-                //and once the key is released, the spinTime is reset to zero
-                spinTime = 0;
-                GetComponent<SpriteRenderer>().color = Color.white;
-                whoosh.Stop();
-            }
-        }
     }
     void AddInput(string input)
     {
@@ -138,10 +104,10 @@ public class SpinManager : MonoBehaviour
     public void loseGame() 
     {
         SceneManager.LoadScene("EndScene");
-        PlayerPrefs.SetFloat("GameDistance", highestDistance);
-        if (highestDistance > PlayerPrefs.GetFloat("HighestDistance", 0.0f))
+        PlayerPrefs.SetFloat("GameDistance", score);
+        if (score > PlayerPrefs.GetFloat("HighestDistance", 0.0f))
         {
-            PlayerPrefs.SetFloat("HighestDistance", highestDistance);
+            PlayerPrefs.SetFloat("HighestDistance", score);
         }
     }
     public void AddScore(int inputSequences)
