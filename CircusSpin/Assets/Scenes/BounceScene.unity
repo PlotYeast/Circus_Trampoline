@@ -1269,7 +1269,7 @@ MonoBehaviour:
   Bounce1: {fileID: 1128197095}
   Bounce2: {fileID: 21773097}
   Bounce3: {fileID: 1066873842}
-  patternCreator: {fileID: 0}
+  patternCreator: {fileID: 519420033}
 --- !u!114 &988565871
 MonoBehaviour:
   m_ObjectHideFlags: 0
