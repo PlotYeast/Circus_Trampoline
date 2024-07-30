@@ -12,6 +12,10 @@ public class SpinManager : MonoBehaviour
     bool inDeathSpace;
     public float spinTime;
     [SerializeField] AudioSource whoosh;
+    [SerializeField] AudioSource pose1;
+    [SerializeField] AudioSource pose2;
+    [SerializeField] AudioSource pose3;
+    [SerializeField] AudioSource pose4;
     [SerializeField] Text scoreText;
     float score = 0f;
     PlayerBounce playerBounce;
@@ -48,24 +52,28 @@ public class SpinManager : MonoBehaviour
             AddInput("up");
             anim.SetFloat("TrickDirection", 1);
             anim.SetTrigger("IsTricking");
+            pose1.Play();
         }
         else if (Input.GetKeyDown(KeyCode.LeftArrow))
         {
             AddInput("left");
             anim.SetFloat("TrickDirection", 0);
             anim.SetTrigger("IsTricking");
+            pose2.Play();
         }
         else if (Input.GetKeyDown(KeyCode.DownArrow))
         {
             AddInput("down");
             anim.SetFloat("TrickDirection", 0.6666667f);
             anim.SetTrigger("IsTricking");
+            pose3.Play();
         }
         else if (Input.GetKeyDown(KeyCode.RightArrow))
         {
             AddInput("right");
             anim.SetFloat("TrickDirection", 0.33333333f);
             anim.SetTrigger("IsTricking");
+            pose4.Play();
         }
     }
     void AddInput(string input)
@@ -78,8 +86,6 @@ public class SpinManager : MonoBehaviour
         {
             playerInputs.Add(input);
             rB.gravityScale = 1f;
-            //whoosh may have to be adjusted, but it's a temporary sound, so that was going to happen anyways
-            whoosh.Play();
         }
 
     }
