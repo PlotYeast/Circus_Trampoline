@@ -475,6 +475,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2099924541}
+  - {fileID: 1607769744}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -799,6 +800,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79937916114f96b46b8534f9e515aae8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  numOfCorrectInputs: 0
   upArrow: {fileID: -311815421, guid: fa9074d2922078a46be846f8c0137236, type: 3}
   downArrow: {fileID: -1461425170, guid: fa9074d2922078a46be846f8c0137236, type: 3}
   leftArrow: {fileID: -1682951849, guid: fa9074d2922078a46be846f8c0137236, type: 3}
@@ -1249,7 +1251,7 @@ MonoBehaviour:
   pose2: {fileID: 1645716784}
   pose3: {fileID: 1493213132}
   pose4: {fileID: 183179650}
-  scoreText: {fileID: 0}
+  scoreText: {fileID: 1607769745}
   anim: {fileID: 1399237432}
 --- !u!1 &1066873840
 GameObject:
@@ -1885,6 +1887,85 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!1 &1607769743
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1607769744}
+  - component: {fileID: 1607769746}
+  - component: {fileID: 1607769745}
+  m_Layer: 5
+  m_Name: ScoreText
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1607769744
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1607769743}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 112344219}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -339, y: 177}
+  m_SizeDelta: {x: 115.9, y: 56.6}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1607769745
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1607769743}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 12800000, guid: ce9f6d628cc3df24aba143644adb19ad, type: 3}
+    m_FontSize: 17
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 10
+    m_MaxSize: 40
+    m_Alignment: 1
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: 'Score: 0000'
+--- !u!222 &1607769746
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1607769743}
+  m_CullTransparentMesh: 1
 --- !u!1 &1645716782
 GameObject:
   m_ObjectHideFlags: 0
@@ -2065,6 +2146,7 @@ GameObject:
   - component: {fileID: 1799091169}
   - component: {fileID: 1799091168}
   - component: {fileID: 1799091170}
+  - component: {fileID: 1799091171}
   m_Layer: 0
   m_Name: TrampolineSprite
   m_TagString: Untagged
@@ -2218,6 +2300,20 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &1799091171
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1799091165}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5011983dfc7192247a7dd74f9f486658, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  particalSystem: {fileID: 5396194317863322349, guid: cdf2d532e4f21c9469cb89e61df2e180, type: 3}
+  bouncecounterkeeper: {fileID: 519420033}
 --- !u!1 &1915615362
 GameObject:
   m_ObjectHideFlags: 0

@@ -14,6 +14,8 @@ public class PlayerBounce : MonoBehaviour
     SpinManager spinner;
     [SerializeField] TrickPatternCreator patternCreator;
     Rigidbody2D rB;
+
+
     // Start is called before the first frame update
     void Start()
     {

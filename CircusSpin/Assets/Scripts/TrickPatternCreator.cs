@@ -12,7 +12,7 @@ public class TrickPatternCreator : MonoBehaviour
     List<GameObject> arrowObjects = new List<GameObject>();
 
     int difficultyScale = 2;
-    int numOfCorrectInputs = 0;
+    public int numOfCorrectInputs = 0;
     int numOfBounce = 0;
     
     string pattern = "";
