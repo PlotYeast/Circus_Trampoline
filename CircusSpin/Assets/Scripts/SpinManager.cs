@@ -23,6 +23,7 @@ public class SpinManager : MonoBehaviour
     float highestDistance = 0f;
     List<string> playerInputs;
     public Animator anim;
+    TrickPatternCreator creator;
 
     //this is some set up variables for changing the force of the bounce.
     //Time gained will find
@@ -35,6 +36,7 @@ public class SpinManager : MonoBehaviour
         spinTime = 0;
         playerBounce = GetComponent<PlayerBounce>();
         rB = GetComponent<Rigidbody2D>();
+        creator = FindObjectOfType<TrickPatternCreator>();
         rB.gravityScale = 0f;
         playerInputs = new List<string>();
     }
@@ -85,6 +87,7 @@ public class SpinManager : MonoBehaviour
         else 
         {
             playerInputs.Add(input);
+            creator.GetInput(input);
             rB.gravityScale = 1f;
         }
 

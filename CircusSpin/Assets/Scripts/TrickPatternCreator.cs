@@ -12,9 +12,9 @@ public class TrickPatternCreator : MonoBehaviour
     List<GameObject> arrowObjects = new List<GameObject>();
 
     int difficultyScale = 2;
+    int currentInput = 0;
     public int numOfCorrectInputs = 0;
     int numOfBounce = 0;
-    
     string pattern = "";
     string playerPattern = "";
 
@@ -125,14 +125,39 @@ public class TrickPatternCreator : MonoBehaviour
         
 
         numOfCorrectInputs = Regex.Matches(playerPattern, pattern).Count;
-
         pattern = "";
         playerPattern = "";
-
+        ResetArrows();
         numOfBounce += 1;
-
+        currentInput = 0;
+        patterns.Clear();
         difficultyScale = Math.Clamp((numOfBounce / 4), 2, 9);
 
         return numOfCorrectInputs;
+    }
+    public void GetInput(string playerInput) 
+    {
+        if (playerInput == patterns[currentInput])
+        {
+            arrowObjects[currentInput].GetComponent<SpriteRenderer>().color = Color.green;
+            currentInput++;
+            if (currentInput >= difficultyScale)
+            {
+                currentInput = 0;
+                ResetArrows();
+            }
+        }
+        else 
+        {
+            currentInput = 0;
+            ResetArrows();
+        }
+    }
+    void ResetArrows() 
+    {
+        foreach (GameObject Arrow in arrowObjects) 
+        {
+            Arrow.GetComponent<SpriteRenderer>().color = Color.white;
+        }
     }
 }
