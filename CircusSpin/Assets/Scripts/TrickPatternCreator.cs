@@ -26,6 +26,8 @@ public class TrickPatternCreator : MonoBehaviour
 
     public GameObject ArrowDefault;
     public AudioSource succesScore;
+    public AudioSource comboSuccess;
+    public AudioSource wrongInput;
 
     // Start is called before the first frame update
     void Start()
@@ -155,10 +157,12 @@ public class TrickPatternCreator : MonoBehaviour
                 ResetArrows();
                 comboNumber++;
                 comboText.text = $"{comboNumber}x Combo";
+                comboSuccess.Play();
             }
         }
         else 
         {
+            wrongInput.Play();
             currentInput = 0;
             ResetArrows();
         }
