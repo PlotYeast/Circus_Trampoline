@@ -7,10 +7,11 @@ using System;
 
 public class TrickPatternCreator : MonoBehaviour
 {
+    [SerializeField] Text comboText;
     List<string> patterns = new List<string>();
 
     List<GameObject> arrowObjects = new List<GameObject>();
-
+    int comboNumber;
     int difficultyScale = 2;
     int currentInput = 0;
     public int numOfCorrectInputs = 0;
@@ -18,19 +19,18 @@ public class TrickPatternCreator : MonoBehaviour
     string pattern = "";
     string playerPattern = "";
 
-    public AudioSource succesScore;
-    
-
     public Sprite upArrow;
     public Sprite downArrow;
     public Sprite leftArrow;
     public Sprite rightArrow;
 
     public GameObject ArrowDefault;
+    public AudioSource succesScore;
 
     // Start is called before the first frame update
     void Start()
     {
+        comboText.text = "0x Combo";
         Vector3 position = Vector3.zero;
         float xposition = -2f;
         position.y = 1.5f;
@@ -125,26 +125,22 @@ public class TrickPatternCreator : MonoBehaviour
         {
             playerPattern += playerInput;
         }
-        
-
-        numOfCorrectInputs = Regex.Matches(playerPattern, pattern).Count;
 
         if (numOfCorrectInputs > 0)
         {
             succesScore.Play();
         }
 
+        numOfCorrectInputs = Regex.Matches(playerPattern, pattern).Count;
         pattern = "";
         playerPattern = "";
-        
         ResetArrows();
-        
         numOfBounce += 1;
         currentInput = 0;
-        
         patterns.Clear();
         difficultyScale = Math.Clamp((numOfBounce / 4), 2, 9);
-
+        comboNumber = 0;
+        comboText.text = $"{comboNumber}x Combo";
         return numOfCorrectInputs;
     }
     public void GetInput(string playerInput) 
@@ -157,6 +153,8 @@ public class TrickPatternCreator : MonoBehaviour
             {
                 currentInput = 0;
                 ResetArrows();
+                comboNumber++;
+                comboText.text = $"{comboNumber}x Combo";
             }
         }
         else 
