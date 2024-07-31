@@ -18,6 +18,9 @@ public class TrickPatternCreator : MonoBehaviour
     string pattern = "";
     string playerPattern = "";
 
+    public AudioSource succesScore;
+    
+
     public Sprite upArrow;
     public Sprite downArrow;
     public Sprite leftArrow;
@@ -125,11 +128,20 @@ public class TrickPatternCreator : MonoBehaviour
         
 
         numOfCorrectInputs = Regex.Matches(playerPattern, pattern).Count;
+
+        if (numOfCorrectInputs > 0)
+        {
+            succesScore.Play();
+        }
+
         pattern = "";
         playerPattern = "";
+        
         ResetArrows();
+        
         numOfBounce += 1;
         currentInput = 0;
+        
         patterns.Clear();
         difficultyScale = Math.Clamp((numOfBounce / 4), 2, 9);
 

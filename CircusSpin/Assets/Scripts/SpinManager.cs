@@ -112,12 +112,12 @@ public class SpinManager : MonoBehaviour
     }
     public void loseGame() 
     {
-        SceneManager.LoadScene("EndScene");
         PlayerPrefs.SetFloat("GameDistance", score);
         if (score > PlayerPrefs.GetFloat("HighestDistance", 0.0f))
         {
             PlayerPrefs.SetFloat("HighestDistance", score);
         }
+        SceneManager.LoadScene("EndScene");
     }
     public void AddScore(int inputSequences)
     {
