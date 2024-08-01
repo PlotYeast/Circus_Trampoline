@@ -140,7 +140,7 @@ public class TrickPatternCreator : MonoBehaviour
         numOfBounce += 1;
         currentInput = 0;
         patterns.Clear();
-        difficultyScale = Math.Clamp((numOfBounce / 4), 2, 9);
+        difficultyScale = Math.Clamp((numOfBounce / 7) + 2, 2, 9);
         comboNumber = 0;
         comboText.text = $"{comboNumber}x Combo";
         return numOfCorrectInputs;

@@ -802,7 +802,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79937916114f96b46b8534f9e515aae8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  comboText: {fileID: 0}
+  comboText: {fileID: 1550566341}
   numOfCorrectInputs: 0
   upArrow: {fileID: -311815421, guid: fa9074d2922078a46be846f8c0137236, type: 3}
   downArrow: {fileID: -1461425170, guid: fa9074d2922078a46be846f8c0137236, type: 3}
@@ -1374,8 +1374,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   jumpForce: 10
-  jumpModifier: 0.5
-  jumpForceMax: 10
+  jumpModifier: 1
+  jumpForceMax: 15
   Bounce1: {fileID: 1128197095}
   Bounce2: {fileID: 21773097}
   Bounce3: {fileID: 1066873842}
