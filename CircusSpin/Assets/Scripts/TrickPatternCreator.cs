@@ -129,12 +129,13 @@ public class TrickPatternCreator : MonoBehaviour
             playerPattern += playerInput;
         }
 
+        numOfCorrectInputs = Regex.Matches(playerPattern, pattern).Count;
+
         if (numOfCorrectInputs > 0)
         {
             succesScore.Play();
         }
 
-        numOfCorrectInputs = Regex.Matches(playerPattern, pattern).Count;
         pattern = "";
         playerPattern = "";
         ResetArrows();
