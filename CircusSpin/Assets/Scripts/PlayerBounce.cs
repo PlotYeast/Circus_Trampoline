@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerBounce : MonoBehaviour
 {
     int score = 0;
+    int errors = 0;
     [SerializeField] float jumpForce = 10.0f;
     [SerializeField] float jumpModifier = 0.5f;
     [SerializeField] float jumpForceMax = 10.0f;
@@ -14,8 +15,6 @@ public class PlayerBounce : MonoBehaviour
     SpinManager spinner;
     [SerializeField] TrickPatternCreator patternCreator;
     Rigidbody2D rB;
-
-
     // Start is called before the first frame update
     void Start()
     {
@@ -47,20 +46,21 @@ public class PlayerBounce : MonoBehaviour
         }
         
         int inputSequences = patternCreator.CompareInputs(spinner.GetPlayerInputs());
-
-        print(inputSequences);
-        spinner.AddScore(inputSequences);
-        if (inputSequences == 0) { jumpForce -= jumpModifier; }
+        if (inputSequences == 0) 
+        {
+            jumpForce -= jumpModifier;
+            errors++;
+            if (errors >= 3) 
+            {
+                spinner.loseGame();
+            }
+        }
         else
         {
             jumpForce += jumpModifier;
+            errors = 0;
             if (jumpForce > jumpForceMax) jumpForce = jumpForceMax;
         }
-        foreach (string input in spinner.GetPlayerInputs()) 
-        {
-            print(input.ToString());
-        }
-
         spinner.ClearInputs();
         patternCreator.CreateNewInputs();
 
