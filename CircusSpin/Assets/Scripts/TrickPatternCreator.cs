@@ -11,6 +11,7 @@ public class TrickPatternCreator : MonoBehaviour
     List<string> patterns = new List<string>();
 
     List<GameObject> arrowObjects = new List<GameObject>();
+    SpinManager spinner;
     int comboNumber;
     int difficultyScale = 2;
     int currentInput = 0;
@@ -36,7 +37,7 @@ public class TrickPatternCreator : MonoBehaviour
         Vector3 position = Vector3.zero;
         float xposition = -2f;
         position.y = 1.5f;
-
+        spinner = FindObjectOfType<SpinManager>();
 
         for (int i = 0; i<9; i++)
         {
@@ -156,6 +157,7 @@ public class TrickPatternCreator : MonoBehaviour
                 currentInput = 0;
                 ResetArrows();
                 comboNumber++;
+                spinner.AddScore(comboNumber);
                 comboText.text = $"{comboNumber}x Combo";
                 comboSuccess.Play();
             }

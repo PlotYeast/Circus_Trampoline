@@ -119,9 +119,9 @@ public class SpinManager : MonoBehaviour
         }
         SceneManager.LoadScene("EndScene");
     }
-    public void AddScore(int inputSequences)
+    public void AddScore(int scoreToAdd)
     {
-        score += (inputSequences * (inputSequences + 1) * 50);
+        score += (scoreToAdd * 100);
         scoreText.text = "Current Score: " + score;
     }
 }
