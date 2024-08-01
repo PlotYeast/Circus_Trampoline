@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class QuitButton : MonoBehaviour
 {
+    [SerializeField] AudioSource buttonPress;
     // Start is called before the first frame update
     void Start()
     {
@@ -18,6 +19,7 @@ public class QuitButton : MonoBehaviour
 
     public void QuitGame()
     {
+        buttonPress.Play();
         UnityEditor.EditorApplication.isPlaying = false;
         Application.Quit();
     }

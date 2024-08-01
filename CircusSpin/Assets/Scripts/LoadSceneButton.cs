@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 public class LoadSceneButton : MonoBehaviour
 {
     [SerializeField] string sceneName;
-
+    [SerializeField] AudioSource buttonPress;
     // Start is called before the first frame update
     void Start()
     {
@@ -22,6 +22,7 @@ public class LoadSceneButton : MonoBehaviour
 
     public void LoadNextScene()
     {
+        buttonPress.Play();
         SceneManager.LoadScene(sceneName);
     }
 }
