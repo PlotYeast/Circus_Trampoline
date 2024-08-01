@@ -122,6 +122,6 @@ public class SpinManager : MonoBehaviour
     public void AddScore(int scoreToAdd)
     {
         score += (scoreToAdd * 100);
-        scoreText.text = "Current Score: " + score;
+        scoreText.text = "Score: " + score;
     }
 }

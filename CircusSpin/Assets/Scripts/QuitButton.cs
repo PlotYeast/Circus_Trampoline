@@ -20,7 +20,7 @@ public class QuitButton : MonoBehaviour
     public void QuitGame()
     {
         buttonPress.Play();
-        UnityEditor.EditorApplication.isPlaying = false;
+        
         Application.Quit();
     }
 }
