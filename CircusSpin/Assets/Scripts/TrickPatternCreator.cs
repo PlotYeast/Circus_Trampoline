@@ -30,6 +30,8 @@ public class TrickPatternCreator : MonoBehaviour
     public AudioSource comboSuccess;
     public AudioSource wrongInput;
 
+    [SerializeField] SpawnArrowParticle arrowParticle;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -151,6 +153,9 @@ public class TrickPatternCreator : MonoBehaviour
     {
         if (playerInput == patterns[currentInput])
         {
+            Debug.Log(currentInput);
+            Vector3 particlePosition = arrowObjects[currentInput].transform.position;
+            arrowParticle.SpawnParticle(particlePosition, arrowObjects[currentInput]);
             arrowObjects[currentInput].GetComponent<SpriteRenderer>().color = Color.green;
             currentInput++;
             if (currentInput >= difficultyScale)

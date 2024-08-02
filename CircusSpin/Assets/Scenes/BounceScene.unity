@@ -817,6 +817,7 @@ MonoBehaviour:
   succesScore: {fileID: 1668955585}
   comboSuccess: {fileID: 1770628777}
   wrongInput: {fileID: 1928622024}
+  arrowParticle: {fileID: 1799091173}
 --- !u!114 &519420034
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3248,7 +3249,8 @@ GameObject:
   - component: {fileID: 1799091169}
   - component: {fileID: 1799091168}
   - component: {fileID: 1799091170}
-  - component: {fileID: 1799091171}
+  - component: {fileID: 1799091172}
+  - component: {fileID: 1799091173}
   m_Layer: 0
   m_Name: TrampolineSprite
   m_TagString: Untagged
@@ -3402,7 +3404,7 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &1799091171
+--- !u!114 &1799091172
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -3414,7 +3416,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5011983dfc7192247a7dd74f9f486658, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  particalSystem: {fileID: 5396194317863322349, guid: cdf2d532e4f21c9469cb89e61df2e180, type: 3}
+  particalSystem: {fileID: 5396194317863322349, guid: c9c93eb65cc138c488af294d375aeeb5, type: 3}
+  bouncecounterkeeper: {fileID: 519420033}
+--- !u!114 &1799091173
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1799091165}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc98959d90b94ab40a335f669dccb0fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  particalSystem: {fileID: 5396194317863322349, guid: c9c93eb65cc138c488af294d375aeeb5, type: 3}
   bouncecounterkeeper: {fileID: 519420033}
 --- !u!1 &1915615362
 GameObject:
