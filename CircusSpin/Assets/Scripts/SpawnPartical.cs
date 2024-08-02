@@ -25,7 +25,7 @@ public class SpawnPartical : MonoBehaviour
     {
         if (particalSystem != null && bouncecounterkeeper.numOfCorrectInputs > 0)
         {
-            Instantiate(particalSystem, new Vector3(0,-2.77f,0), Quaternion.identity);
+            Instantiate(particalSystem, new Vector3(0,-2.77f,0), Quaternion.Euler(-90,0,0));
         }
     }
 

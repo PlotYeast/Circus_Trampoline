@@ -3416,7 +3416,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5011983dfc7192247a7dd74f9f486658, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  particalSystem: {fileID: 5396194317863322349, guid: c9c93eb65cc138c488af294d375aeeb5, type: 3}
+  particalSystem: {fileID: 5396194317863322349, guid: cdf2d532e4f21c9469cb89e61df2e180, type: 3}
   bouncecounterkeeper: {fileID: 519420033}
 --- !u!114 &1799091173
 MonoBehaviour:
