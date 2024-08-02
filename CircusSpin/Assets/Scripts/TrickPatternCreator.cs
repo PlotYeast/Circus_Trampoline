@@ -156,7 +156,7 @@ public class TrickPatternCreator : MonoBehaviour
             Debug.Log(currentInput);
             Vector3 particlePosition = arrowObjects[currentInput].transform.position;
             arrowParticle.SpawnParticle(particlePosition, arrowObjects[currentInput]);
-            arrowObjects[currentInput].GetComponent<SpriteRenderer>().color = Color.green;
+            arrowObjects[currentInput].GetComponent<SpriteRenderer>().color = new Color(0.6f, 1.0f, 0f);
             currentInput++;
             if (currentInput >= difficultyScale)
             {
