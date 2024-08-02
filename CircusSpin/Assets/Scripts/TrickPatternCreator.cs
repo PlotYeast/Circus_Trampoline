@@ -163,7 +163,7 @@ public class TrickPatternCreator : MonoBehaviour
                 currentInput = 0;
                 ResetArrows();
                 comboNumber++;
-                spinner.AddScore(comboNumber);
+                spinner.AddScore(comboNumber * (difficultyScale - 1));
                 comboText.text = $"{comboNumber}x Combo";
                 comboSuccess.Play();
             }
